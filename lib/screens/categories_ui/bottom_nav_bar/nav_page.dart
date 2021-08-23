@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/ui/categories_ui/bottom_nav_bar/last_page.dart';
-import 'package:foodappbloc/ui/categories_ui/bottom_nav_bar/second_page.dart';
-import 'package:foodappbloc/ui/categories_ui/bottom_nav_bar/third.dart';
+import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/last_page.dart';
+import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/second_page.dart';
+import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/third.dart';
 
 import 'home_page.dart';
 

@@ -9,7 +9,7 @@ import 'package:foodappbloc/bloc/category/category_state.dart';
 import 'package:foodappbloc/data/model/food.dart';
 import 'package:foodappbloc/elements/error.dart';
 import 'package:foodappbloc/elements/loading.dart';
-import 'package:foodappbloc/ui/food_details.dart';
+import 'package:foodappbloc/screens/food_details.dart';
 
 class CategoryPage extends StatefulWidget {
   final String product;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodappbloc/ui/categories_ui/bottom_nav_bar/nav_page.dart';
+import 'package:foodappbloc/presentation/router/app_router.dart';
+import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/nav_page.dart';
 import 'bloc/category/category_bloc.dart';
 import 'bloc/food/food_bloc.dart';
 import 'data/repositories/category_repository.dart';
@@ -11,10 +12,15 @@ void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   // await Hive.initFlutter();
   // await Hive.openBox(API_BOX);
-  runApp(MyApp());
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
+  final AppRouter appRouter;
+
+  const MyApp({Key key, this.appRouter}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -33,6 +39,7 @@ class MyApp extends StatelessWidget {
           // title: 'Sizer',
           theme: ThemeData.light(),
           home: PageNavagation(),
+          onGenerateRoute: appRouter.onGenerateRoute,
         ));
   }
 }

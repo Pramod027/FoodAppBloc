@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/ui/category_page.dart';
+import 'package:foodappbloc/screens/category_page.dart';
 
 class Beef extends StatefulWidget {
   @override

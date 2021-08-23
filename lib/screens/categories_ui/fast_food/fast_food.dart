@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/ui/category_page.dart';
+
+import '../../screen_export.dart';
 
 class FastFood extends StatefulWidget {
   @override

@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodappbloc/bloc/category/category_event.dart';
-import 'package:foodappbloc/bloc/category/category_state.dart';
-import 'package:foodappbloc/data/model/food.dart';
-import 'package:foodappbloc/data/repositories/category_repository.dart';
-import 'package:foodappbloc/data/repositories/food_repository.dart';
+import 'package:foodappbloc/data/export_data.dart';
+import 'category_event.dart';
+import 'category_state.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   CategoryRepository repository;

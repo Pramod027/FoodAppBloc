@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/screens/category_page.dart';
+
+import '../../screen_export.dart';
 
 class Fruits extends StatefulWidget {
   @override

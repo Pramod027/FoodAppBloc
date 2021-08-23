@@ -1,6 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/data/model/food.dart';
+import 'package:foodappbloc/data/export_data.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class FoodDetails extends StatefulWidget {
@@ -18,13 +18,13 @@ class _FoodDetailsState extends State<FoodDetails> {
 
   @override
   Widget build(BuildContext context) {
-    Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     print(size);
-    double height=MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
     print(height);
-    double width=MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     print(width);
-    
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -124,7 +124,6 @@ class _FoodDetailsState extends State<FoodDetails> {
                     SizedBox(
                       height: 10,
                     ),
-
                     SizedBox(
                       height: 10,
                     ),
