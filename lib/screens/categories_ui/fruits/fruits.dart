@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodappbloc/constants/app_colors.dart';
 
 import '../../screen_export.dart';
 
@@ -16,11 +17,11 @@ class _FruitsState extends State<Fruits> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: AppColor().kcWhite,
             elevation: 0,
             bottom: TabBar(
-              labelColor: Colors.black,
-              indicatorColor: Colors.red,
+              labelColor: AppColor().kcBlack,
+              indicatorColor: AppColor().indicatorColor,
               indicatorWeight: 4,
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: EdgeInsets.symmetric(horizontal: 10),

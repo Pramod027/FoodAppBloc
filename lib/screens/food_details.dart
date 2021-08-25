@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodappbloc/constants/app_sized_box.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -95,27 +95,34 @@ class _FoodDetailsState extends State<FoodDetails> {
                           child: Text(
                             items.title,
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                height: 1.4),
                           ),
                         ),
                         Text(
                           '\$${items.recipeId}',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black87),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    kSboxH12,
                     ExpandablePanel(
                       header: Text(
                         'Product Details',
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            height: 1.2),
                       ),
                       expanded: Text(
                         items.publisher,
                         style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
                           color: Colors.black54,
                         ),
                         softWrap: true,
@@ -128,18 +135,18 @@ class _FoodDetailsState extends State<FoodDetails> {
                         softWrap: true,
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    kSboxH12,
                     Row(
                       children: [
-                        Text(
-                          'Review',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
+                        Expanded(
+                          child: Text(
+                            'Review',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                        Spacer(),
                         SmoothStarRating(
                           starCount: 5,
                           isReadOnly: false, //for user update
@@ -151,7 +158,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    kSboxH20,
                     SizedBox(
                       height: 50,
                       width: double.infinity,
@@ -168,6 +175,9 @@ class _FoodDetailsState extends State<FoodDetails> {
                         child: Text(
                           'Add To Basket',
                           style: TextStyle(
+                            height: 1.2,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
                             color: Colors.white,
                           ),
                         ),

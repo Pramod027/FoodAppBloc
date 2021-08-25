@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappbloc/bloc/category/category_export.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:foodappbloc/elements/elements_widgets.dart';
+import 'package:foodappbloc/elements/popular_card.dart';
 import 'package:foodappbloc/screens/screen_export.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -50,8 +50,6 @@ class _CategoryPageState extends State<CategoryPage> {
       ),
     );
   }
-
-//  bool get wantKeepAlive => true;
 }
 
 Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
@@ -72,99 +70,18 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          FoodDetails(items: recipes[index])));
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      offset: Offset(-1, -1),
-                      blurRadius: 3),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: AspectRatio(
-                      aspectRatio: 3 / 2,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: CachedNetworkImage(
-                            cacheManager: customCacheManager,
-                            imageUrl: recipes[index].imageUrl,
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            errorWidget: (context, url, error) => Icon(
-                                  Icons.image,
-                                  color: Colors.grey,
-                                  size: 80,
-                                ),
-                            fit: BoxFit.cover),
-                      ),
-                    ),
-                  ),
-                  // SizedBox(height: 30),
-                  Padding(
-                    padding: EdgeInsets.only(left: 5.0),
-                    child: Text(
-                      recipes[index].title,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 5.0),
-                            child: Text(
-                              'Rs ${(recipes[index].socialRank.toInt()).toString()}',
-                              maxLines: 3,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            '40% off',
-                            style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: Center(
-                          child: Text(
-                            'ADD',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          );
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            FoodDetails(items: recipes[index])));
+              },
+              child: CustomPopularCard(
+                imageUrl: recipes[index].imageUrl,
+                recipeName: recipes[index].title,
+                price: recipes[index].socialRank.toInt().toString(),
+              ));
         }),
   );
 }
