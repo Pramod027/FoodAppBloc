@@ -80,9 +80,9 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                           FoodDetails(items: recipes[index])));
             },
             child: Container(
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
@@ -98,15 +98,17 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                       aspectRatio: 3 / 2,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: recipes[index].imageUrl == null
-                            ? SvgPicture.asset('assets/images/picture.svg')
-                            : CachedNetworkImage(
-                                cacheManager: customCacheManager,
-                                imageUrl: recipes[index].imageUrl,
-                                placeholder: (context, url) =>
-                                    CircularProgressIndicator(),
-                                //errorWidget: (context, url, error) => Icon(Icons.error)
-                                fit: BoxFit.cover),
+                        child: CachedNetworkImage(
+                            cacheManager: customCacheManager,
+                            imageUrl: recipes[index].imageUrl,
+                            placeholder: (context, url) =>
+                                CircularProgressIndicator(),
+                            errorWidget: (context, url, error) => Icon(
+                                  Icons.image,
+                                  color: Colors.grey,
+                                  size: 80,
+                                ),
+                            fit: BoxFit.cover),
                       ),
                     ),
                   ),

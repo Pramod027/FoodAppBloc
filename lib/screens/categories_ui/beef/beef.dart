@@ -12,22 +12,32 @@ class _BeefState extends State<Beef> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: 'Beef',
-              ),
-              Tab(
-                text: 'Lamb',
-              ),
-              Tab(
-                text: 'Pork',
-              ),
-              Tab(
-                text: 'Ribs',
-              ),
-            ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            bottom: TabBar(
+              labelColor: Colors.black,
+              indicatorColor: Colors.red,
+              indicatorWeight: 4,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
+              tabs: [
+                Tab(
+                  text: 'Beef',
+                ),
+                Tab(
+                  text: 'Lamb',
+                ),
+                Tab(
+                  text: 'Pork',
+                ),
+                Tab(
+                  text: 'Ribs',
+                ),
+              ],
+            ),
           ),
         ),
         body: TabBarView(

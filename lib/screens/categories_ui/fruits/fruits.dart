@@ -13,25 +13,35 @@ class _FruitsState extends State<Fruits> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: 'Banana',
-              ),
-              Tab(
-                text: 'Cherry',
-              ),
-              Tab(
-                text: 'Grape',
-              ),
-              Tab(
-                text: 'Pear',
-              ),
-              Tab(
-                text: 'Strawberry',
-              ),
-            ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            bottom: TabBar(
+              labelColor: Colors.black,
+              indicatorColor: Colors.red,
+              indicatorWeight: 4,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
+              tabs: [
+                Tab(
+                  text: 'Banana',
+                ),
+                Tab(
+                  text: 'Cherry',
+                ),
+                Tab(
+                  text: 'Grape',
+                ),
+                Tab(
+                  text: 'Pear',
+                ),
+                Tab(
+                  text: 'Strawberry',
+                ),
+              ],
+            ),
           ),
         ),
         body: TabBarView(

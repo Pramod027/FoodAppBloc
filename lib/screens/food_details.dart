@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -13,6 +15,10 @@ class FoodDetails extends StatefulWidget {
 }
 
 class _FoodDetailsState extends State<FoodDetails> {
+  final customCacheManager = CacheManager(Config(
+    'customCacheKey',
+    stalePeriod: Duration(days: 1),
+  ));
   final Recipe items;
 
   _FoodDetailsState(this.items);
@@ -61,12 +67,17 @@ class _FoodDetailsState extends State<FoodDetails> {
                     color: Color(0xFFFECEFF1)),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: items.imageUrl == null
-                      ? SvgPicture.asset('assets/images/picture.svg')
-                      : Image.network(
-                          items.imageUrl,
-                          fit: BoxFit.cover,
-                        ),
+                  child: CachedNetworkImage(
+                      cacheManager: customCacheManager,
+                      imageUrl: items.imageUrl,
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(
+                            Icons.image,
+                            color: Colors.grey,
+                            size: 80,
+                          ),
+                      fit: BoxFit.cover),
                 ),
               ),
               Padding(

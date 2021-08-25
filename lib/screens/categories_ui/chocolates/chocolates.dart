@@ -13,16 +13,26 @@ class _ChocolateState extends State<Chocolate> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: 'Chocolate',
-              ),
-              Tab(
-                text: 'Chake',
-              ),
-            ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            bottom: TabBar(
+              labelColor: Colors.black,
+              indicatorColor: Colors.red,
+              indicatorWeight: 4,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 20),
+              tabs: [
+                Tab(
+                  text: 'Chocolate',
+                ),
+                Tab(
+                  text: 'Chake',
+                ),
+              ],
+            ),
           ),
         ),
         body: TabBarView(

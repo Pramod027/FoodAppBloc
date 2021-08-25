@@ -13,25 +13,35 @@ class _FastFoodState extends State<FastFood> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: 'Chips',
-              ),
-              Tab(
-                text: 'Tacos',
-              ),
-              Tab(
-                text: 'Popcorn',
-              ),
-              Tab(
-                text: 'Pizza',
-              ),
-              Tab(
-                text: 'Donut',
-              ),
-            ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            bottom: TabBar(
+              labelColor: Colors.black,
+              indicatorColor: Colors.red,
+              indicatorWeight: 4,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
+              tabs: [
+                Tab(
+                  text: 'Chips',
+                ),
+                Tab(
+                  text: 'Tacos',
+                ),
+                Tab(
+                  text: 'Popcorn',
+                ),
+                Tab(
+                  text: 'Pizza',
+                ),
+                Tab(
+                  text: 'Donut',
+                ),
+              ],
+            ),
           ),
         ),
         body: TabBarView(
