@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappbloc/data/model/food.dart';
 
 Widget buildHintsList(BuildContext context, List<Recipe> recipes) {
@@ -39,10 +40,13 @@ Widget buildHintsList(BuildContext context, List<Recipe> recipes) {
                                 height: 90,
                                 width: 130,
                                 child: Center(
-                                  child: Image.network(
-                                    recipes[index].imageUrl,
-                                    fit: BoxFit.fill,
-                                  ),
+                                  child: recipes[index].imageUrl == null
+                                      ? SvgPicture.asset(
+                                          'assets/images/picture.svg')
+                                      : Image.network(
+                                          recipes[index].imageUrl,
+                                          fit: BoxFit.fill,
+                                        ),
                                 ))),
                         // SizedBox(height: 30),
                         Padding(

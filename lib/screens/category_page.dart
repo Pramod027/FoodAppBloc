@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappbloc/bloc/category/category_export.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:foodappbloc/elements/elements_widgets.dart';
@@ -39,10 +40,12 @@ class _CategoryPageState extends State<CategoryPage> {
             return buildLoading();
           } else if (state is CategoryLoadedState) {
             return builtCategoryList(context, state.recipes);
-          } else if (state is CategoryErrorState) {
-            return buildError(state.message);
-          } else
-            return Container();
+          }
+          // else if (state is CategoryErrorState) {
+          //   return buildError(state.message);
+          // }
+          else
+            return CircularProgressIndicator();
         }),
       ),
     );
@@ -95,13 +98,15 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                       aspectRatio: 3 / 2,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: CachedNetworkImage(
-                            cacheManager: customCacheManager,
-                            imageUrl: recipes[index].imageUrl,
-                            placeholder: (context, url) =>
-                                CircularProgressIndicator(),
-                            //errorWidget: (context, url, error) => Icon(Icons.error)
-                            fit: BoxFit.cover),
+                        child: recipes[index].imageUrl == null
+                            ? SvgPicture.asset('assets/images/picture.svg')
+                            : CachedNetworkImage(
+                                cacheManager: customCacheManager,
+                                imageUrl: recipes[index].imageUrl,
+                                placeholder: (context, url) =>
+                                    CircularProgressIndicator(),
+                                //errorWidget: (context, url, error) => Icon(Icons.error)
+                                fit: BoxFit.cover),
                       ),
                     ),
                   ),

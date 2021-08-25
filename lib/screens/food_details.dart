@@ -1,5 +1,6 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -60,12 +61,12 @@ class _FoodDetailsState extends State<FoodDetails> {
                     color: Color(0xFFFECEFF1)),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Image.network(
-                    items.imageUrl != null
-                        ? items.imageUrl
-                        : 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg',
-                    fit: BoxFit.cover,
-                  ),
+                  child: items.imageUrl == null
+                      ? SvgPicture.asset('assets/images/picture.svg')
+                      : Image.network(
+                          items.imageUrl,
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
               Padding(
