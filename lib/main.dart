@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodappbloc/presentation/router/app_router.dart';
-import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/nav_page.dart';
+
 import 'bloc/category/category_bloc.dart';
 import 'bloc/food/food_bloc.dart';
-import 'data/repositories/category_repository.dart';
-import 'data/repositories/food_repository.dart';
+import 'data/export_data.dart';
+import 'screens/categories_ui/bottom_nav_bar/nav_page.dart';
 
 //const String API_BOX = 'api_data';
 void main() async {

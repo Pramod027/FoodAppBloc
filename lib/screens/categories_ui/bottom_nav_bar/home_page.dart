@@ -3,11 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodappbloc/bloc/food/food_bloc.dart';
 import 'package:foodappbloc/bloc/food/food_event.dart';
 import 'package:foodappbloc/bloc/food/food_state.dart';
-import 'package:foodappbloc/elements/drawer.dart';
-import 'package:foodappbloc/elements/error.dart';
-import 'package:foodappbloc/elements/list.dart';
-import 'package:foodappbloc/elements/list_items.dart';
-import 'package:foodappbloc/elements/loading.dart';
+import 'package:foodappbloc/elements/elements_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

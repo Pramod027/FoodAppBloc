@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:foodappbloc/bloc/category/category_bloc.dart';
-import 'package:foodappbloc/bloc/category/category_event.dart';
-import 'package:foodappbloc/bloc/category/category_state.dart';
-import 'package:foodappbloc/data/model/food.dart';
-import 'package:foodappbloc/elements/error.dart';
-import 'package:foodappbloc/elements/loading.dart';
-import 'package:foodappbloc/screens/food_details.dart';
+import 'package:foodappbloc/bloc/category/category_export.dart';
+import 'package:foodappbloc/data/export_data.dart';
+import 'package:foodappbloc/elements/elements_widgets.dart';
+import 'package:foodappbloc/screens/screen_export.dart';
 
 class CategoryPage extends StatefulWidget {
   final String product;
@@ -34,21 +31,19 @@ class _CategoryPageState extends State<CategoryPage> {
     //  super.build(context);
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: BlocBuilder<CategoryBloc, CategoryState>(
-              builder: (context, state) {
-            if (state is CategoryInitialState) {
-              return buildLoading();
-            } else if (state is CategoryLoadingState) {
-              return buildLoading();
-            } else if (state is CategoryLoadedState) {
-              return builtCategoryList(context, state.recipes);
-            } else if (state is CategoryErrorState) {
-              return buildError(state.message);
-            } else
-              return Container();
-          }),
-        ),
+        child:
+            BlocBuilder<CategoryBloc, CategoryState>(builder: (context, state) {
+          if (state is CategoryInitialState) {
+            return buildLoading();
+          } else if (state is CategoryLoadingState) {
+            return buildLoading();
+          } else if (state is CategoryLoadedState) {
+            return builtCategoryList(context, state.recipes);
+          } else if (state is CategoryErrorState) {
+            return buildError(state.message);
+          } else
+            return Container();
+        }),
       ),
     );
   }
@@ -61,16 +56,15 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
     'customCacheKey',
     stalePeriod: Duration(days: 7),
   ));
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 5),
-    height: MediaQuery.of(context).size.height,
-    child: new StaggeredGridView.countBuilder(
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: StaggeredGridView.countBuilder(
         staggeredTileBuilder: (index) {
-          return StaggeredTile.count(1, 1);
+          return StaggeredTile.fit(1);
         },
         itemCount: recipes.length,
         crossAxisCount: 2,
-        crossAxisSpacing: 5,
+        crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         shrinkWrap: true,
         itemBuilder: (context, index) {
@@ -94,7 +88,7 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                 ],
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: AspectRatio(
@@ -102,13 +96,12 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
                         child: CachedNetworkImage(
-                          cacheManager: customCacheManager,
-                          imageUrl: recipes[index].imageUrl,
-                          placeholder: (context, url) =>
-                              CircularProgressIndicator(),
-                          //errorWidget: (context, url, error) => Icon(Icons.error)
-                          fit: BoxFit.cover,
-                        ),
+                            cacheManager: customCacheManager,
+                            imageUrl: recipes[index].imageUrl,
+                            placeholder: (context, url) =>
+                                CircularProgressIndicator(),
+                            //errorWidget: (context, url, error) => Icon(Icons.error)
+                            fit: BoxFit.cover),
                       ),
                     ),
                   ),
@@ -124,31 +117,32 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
                     height: 2,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
-                        child: Text(
-                          'Rs ${(recipes[index].socialRank.toInt()).toString()}',
-                          maxLines: 3,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        '40% off',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24),
-                      ),
-                      SizedBox(
-                        width: 5,
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Text(
+                              'Rs ${(recipes[index].socialRank.toInt()).toString()}',
+                              maxLines: 3,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            '40% off',
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                        ],
                       ),
                       Container(
-                        height: 25,
-                        width: 50,
+                        padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey)),
                         child: Center(

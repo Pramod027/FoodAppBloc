@@ -18,13 +18,6 @@ class _FoodDetailsState extends State<FoodDetails> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    print(size);
-    double height = MediaQuery.of(context).size.height;
-    print(height);
-    double width = MediaQuery.of(context).size.width;
-    print(width);
-
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -71,7 +64,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                     items.imageUrl != null
                         ? items.imageUrl
                         : 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg',
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -86,10 +79,12 @@ class _FoodDetailsState extends State<FoodDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          items.title,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
+                        Expanded(
+                          child: Text(
+                            items.title,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
+                          ),
                         ),
                         Text(
                           '\$${items.recipeId}',
@@ -120,9 +115,6 @@ class _FoodDetailsState extends State<FoodDetails> {
                         ),
                         softWrap: true,
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
                     ),
                     SizedBox(
                       height: 10,
