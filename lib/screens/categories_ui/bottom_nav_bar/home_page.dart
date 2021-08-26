@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodappbloc/bloc/food/food_bloc.dart';
 import 'package:foodappbloc/bloc/food/food_event.dart';
 import 'package:foodappbloc/bloc/food/food_state.dart';
+import 'package:foodappbloc/bloc/search/search_bloc.dart';
 import 'package:foodappbloc/constants/app_sized_box.dart';
+import 'package:foodappbloc/elements/custom_title.dart';
 import 'package:foodappbloc/elements/elements_widgets.dart';
+import 'package:foodappbloc/elements/search_delegates.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -33,9 +36,12 @@ class _HomePageState extends State<HomePage>
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          'Home',
+          'FoodApp',
           style: TextStyle(
-              color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+              color: Colors.redAccent,
+              fontSize: 18,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w800),
         ),
         actions: [
           IconButton(
@@ -54,12 +60,13 @@ class _HomePageState extends State<HomePage>
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 100,
               width: double.infinity,
               decoration: BoxDecoration(
-                border: Border.all(color: Color(0xFFFECEFF1)),
+                border: Border.all(color: Colors.grey.withOpacity(0.3)),
               ),
               child: Stack(
                 children: [
@@ -115,67 +122,52 @@ class _HomePageState extends State<HomePage>
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.grey.withOpacity(0.1),
-              ),
-              child: Row(
-                children: [
-                  IconButton(
-                      icon: Icon(
-                        Icons.search,
-                        color: Colors.grey,
+            kSboxH12,
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                        icon: Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {}),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Search product',
+                            hintStyle: TextStyle(color: Colors.grey)),
+                        onTap: () {
+                          showSearch(
+                              context: context,
+                              delegate: FoodSearch(
+                                  searchBloc:
+                                      BlocProvider.of<SearchBloc>(context)));
+                        },
                       ),
-                      onPressed: () {}),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search product',
-                          hintStyle: TextStyle(color: Colors.grey)),
-                      onTap: () {},
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(
               height: 10,
             ),
-            Row(
-              children: [
-                Text(
-                  'All Products',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                )
-              ],
+            CustomTitle(
+              categoryTitle: 'All Products',
             ),
-            SizedBox(
-              height: 10,
-            ),
+            kSboxH12,
             CategoryItems(),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Most Popular',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            ),
+            kSboxH8,
+            CustomTitle(categoryTitle: 'Most Popular'),
             SizedBox(
               height: 10,
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:foodappbloc/constants/app_colors.dart';
 
 class AppStyles {
@@ -19,11 +20,11 @@ class AppStyles {
       color: AppColor().kcRed,
       fontWeight: FontWeight.w600);
   final headingSemiBold = TextStyle(
-      fontSize: 14,
+      fontSize: 15,
       fontFamily: '',
       height: 1.6,
       color: AppColor().kcBlack,
-      fontWeight: FontWeight.w700);
+      fontWeight: FontWeight.w400);
   final addText = TextStyle(
       fontSize: 14,
       fontFamily: '',
@@ -31,7 +32,7 @@ class AppStyles {
       color: AppColor().kcGreen,
       fontWeight: FontWeight.w400);
   final reviewText = TextStyle(
-      fontSize: 14,
+      fontSize: 15,
       fontFamily: '',
       height: 1.2,
       color: AppColor().kcBlack,
@@ -48,4 +49,16 @@ class AppStyles {
       height: 1.2,
       color: AppColor().kcWhite,
       fontWeight: FontWeight.w800);
+  final collText = TextStyle(
+      fontSize: 14,
+      fontFamily: '',
+      height: 1.2,
+      color: Colors.black54,
+      fontWeight: FontWeight.w400);
+  final categoryText = TextStyle(
+      fontSize: 15,
+      fontFamily: '',
+      height: 1.6,
+      color: AppColor().kcBlack,
+      fontWeight: FontWeight.w600);
 }

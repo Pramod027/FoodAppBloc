@@ -54,7 +54,7 @@ class _CategoryItemsState extends State<CategoryItems> {
             },
             categoryText: 'Beef',
             image: 'assets/images/beef.svg',
-            color: Colors.grey,
+            color: Colors.brown,
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodappbloc/constants/export_constant.dart';
 import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/last_page.dart';
 import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/second_page.dart';
 import 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/third.dart';
@@ -32,24 +33,25 @@ class _PageNavagationState extends State<PageNavagation> {
         backgroundColor: Colors.white,
         elevation: 0,
         onTap: _onItemTapped,
+        showSelectedLabels: true,
         items: [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: _selectedIndex == 0 ? Colors.blue : Colors.grey,
+                color: _selectedIndex == 0 ? AppColor().kcRed : Colors.grey,
               ),
               title: Text('Home')),
           BottomNavigationBarItem(
               icon: Icon(Icons.search,
-                  color: _selectedIndex == 1 ? Colors.blue : Colors.grey),
+                  color: _selectedIndex == 1 ? AppColor().kcRed : Colors.grey),
               title: Text('Search')),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart,
-                  color: _selectedIndex == 2 ? Colors.blue : Colors.grey),
+                  color: _selectedIndex == 2 ? AppColor().kcRed : Colors.grey),
               title: Text('Shopping Cart')),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline,
-                  color: _selectedIndex == 3 ? Colors.blue : Colors.grey),
+                  color: _selectedIndex == 3 ? AppColor().kcRed : Colors.grey),
               title: Text('Profile')),
         ],
       ),

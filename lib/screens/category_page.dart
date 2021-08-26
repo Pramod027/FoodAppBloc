@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:foodappbloc/bloc/category/category_export.dart';
 import 'package:foodappbloc/data/export_data.dart';
@@ -53,10 +51,6 @@ class _CategoryPageState extends State<CategoryPage> {
 }
 
 Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
-  final customCacheManager = CacheManager(Config(
-    'customCacheKey',
-    stalePeriod: Duration(days: 7),
-  ));
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: StaggeredGridView.countBuilder(
@@ -69,19 +63,18 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
         mainAxisSpacing: 10,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            FoodDetails(items: recipes[index])));
-              },
-              child: CustomPopularCard(
-                imageUrl: recipes[index].imageUrl,
-                recipeName: recipes[index].title,
-                price: recipes[index].socialRank.toInt().toString(),
-              ));
+          return CustomPopularCard(
+            pressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          FoodDetails(items: recipes[index])));
+            },
+            imageUrl: recipes[index].imageUrl,
+            recipeName: recipes[index].title,
+            price: recipes[index].socialRank.toInt().toString(),
+          );
         }),
   );
 }
