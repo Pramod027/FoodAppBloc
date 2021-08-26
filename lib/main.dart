@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodappbloc/bloc/search/search_bloc.dart';
 import 'package:foodappbloc/presentation/router/app_router.dart';
 
 import 'bloc/category/category_bloc.dart';
 import 'bloc/food/food_bloc.dart';
 import 'data/export_data.dart';
+import 'data/repositories/search_repository.dart';
 import 'screens/categories_ui/bottom_nav_bar/nav_page.dart';
 
 //const String API_BOX = 'api_data';
@@ -32,6 +34,11 @@ class MyApp extends StatelessWidget {
           BlocProvider<CategoryBloc>(
             create: (context) =>
                 CategoryBloc(repository: CategoryRepositoryImpl()),
+          ),
+          BlocProvider<SearchBloc>(
+            create: (context) => SearchBloc(
+              searchRepository: SearchRepositoryImpl(),
+            ),
           ),
         ],
         child: MaterialApp(

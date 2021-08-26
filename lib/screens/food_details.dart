@@ -72,13 +72,13 @@ class _FoodDetailsState extends State<FoodDetails> {
                       cacheManager: customCacheManager,
                       imageUrl: items.imageUrl,
                       placeholder: (context, url) =>
-                          CircularProgressIndicator(),
+                          Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) => Icon(
                             Icons.image,
                             color: Colors.grey,
-                            size: 80,
+                            // size: 80,
                           ),
-                      fit: BoxFit.cover),
+                      fit: BoxFit.contain),
                 ),
               ),
               Padding(
@@ -104,25 +104,16 @@ class _FoodDetailsState extends State<FoodDetails> {
                     ExpandablePanel(
                       header: Text(
                         'Product Details',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                            height: 1.2),
+                        style: AppStyles().headingSemiBold,
                       ),
                       expanded: Text(
                         items.publisher,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black54,
-                        ),
+                        style: AppStyles().collText,
                         softWrap: true,
                       ),
                       collapsed: Text(
                         items.publisher,
-                        style: TextStyle(
-                          color: Colors.black54,
-                        ),
+                        style: AppStyles().collText,
                         softWrap: true,
                       ),
                     ),
@@ -132,10 +123,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                         Expanded(
                           child: Text(
                             'Review',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: AppStyles().reviewText,
                           ),
                         ),
                         SmoothStarRating(

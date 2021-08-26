@@ -37,6 +37,8 @@ dependencies:
   http: ^0.13.3
   shared_preferences: ^2.0.6
   smooth_star_rating: ^1.1.1
+  flutter_screenutil: ^5.0.0+2
+  grouped_list: ^4.1.0
 
 dev_dependencies:
   flutter_test:
