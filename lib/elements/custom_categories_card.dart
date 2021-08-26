@@ -29,12 +29,11 @@ class CustomCategoryCard extends StatelessWidget {
             height: 60,
             width: 60,
             child: Align(
-                alignment: Alignment.center,
                 child: SvgPicture.asset(
-                  image,
-                  height: 25,
-                  color: color,
-                )),
+              image,
+              height: 25,
+              color: color,
+            )),
           ),
         ),
         kSboxH4,

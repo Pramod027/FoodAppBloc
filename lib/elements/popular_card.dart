@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:foodappbloc/constants/app_colors.dart';
+import 'package:foodappbloc/constants/export_constant.dart';
 
 class CustomPopularCard extends StatelessWidget {
   final customCacheManager = CacheManager(Config(
@@ -58,15 +59,9 @@ class CustomPopularCard extends StatelessWidget {
           // SizedBox(height: 30),
           Padding(
             padding: EdgeInsets.only(left: 5.0),
-            child: Text(
-              recipeName,
-              style: TextStyle(
-                  fontWeight: FontWeight.w600, fontSize: 14, height: 1.4),
-            ),
+            child: Text(recipeName, style: AppStyles().title),
           ),
-          SizedBox(
-            height: 2,
-          ),
+          kSboxH2,
           Padding(
             padding: const EdgeInsets.only(left: 2, right: 10),
             child: Row(
@@ -76,27 +71,15 @@ class CustomPopularCard extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 5.0),
-                      child: Text(
-                        'Rs $price',
-                        maxLines: 3,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
+                      child: Text('Rs $price',
+                          maxLines: 3, style: AppStyles().subTitle),
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 8,
                     ),
                     Text(
                       '40% off',
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.red,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(
-                      width: 5,
+                      style: AppStyles().redText,
                     ),
                   ],
                 ),
@@ -105,11 +88,7 @@ class CustomPopularCard extends StatelessWidget {
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.grey)),
                   child: Center(
-                    child: Text(
-                      'ADD',
-                      style: TextStyle(
-                          color: Colors.green, fontWeight: FontWeight.w400),
-                    ),
+                    child: Text('ADD', style: AppStyles().addText),
                   ),
                 )
               ],

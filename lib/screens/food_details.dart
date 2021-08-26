@@ -3,6 +3,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:foodappbloc/constants/app_sized_box.dart';
+import 'package:foodappbloc/constants/app_styles.dart';
 import 'package:foodappbloc/data/export_data.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -85,28 +86,18 @@ class _FoodDetailsState extends State<FoodDetails> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 10,
-                    ),
+                    kSboxH12,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: Text(
                             items.title,
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                height: 1.4),
+                            style: AppStyles().detailTitle,
                           ),
                         ),
-                        Text(
-                          '\$${items.recipeId}',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black87),
-                        ),
+                        Text('\$${items.recipeId}',
+                            style: AppStyles().headingSemiBold),
                       ],
                     ),
                     kSboxH12,
@@ -172,15 +163,8 @@ class _FoodDetailsState extends State<FoodDetails> {
 //                              model.addProduct(pizzaNotifier.currentFood);
 //                            },
                         },
-                        child: Text(
-                          'Add To Basket',
-                          style: TextStyle(
-                            height: 1.2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                          ),
-                        ),
+                        child: Text('Add To Basket',
+                            style: AppStyles().addContent),
                       ),
                     )
                   ],
