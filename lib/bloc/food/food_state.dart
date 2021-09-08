@@ -18,7 +18,7 @@ class FoodLoadedState extends FoodState {
   List<Recipe> recipes;
   FoodLoadedState({@required this.recipes});
   @override
-  List<Object> get props => null;
+  List<Object> get props => [recipes];
 }
 
 class FoodErrorState extends FoodState {

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:foodappbloc/bloc/search/search_bloc.dart';
-import 'package:foodappbloc/bloc/search/search_event.dart';
-import 'package:foodappbloc/bloc/search/search_state.dart';
-import 'package:foodappbloc/elements/search_item_card.dart';
-import 'package:foodappbloc/screens/screen_export.dart';
+import 'package:foodappbloc/bloc/search/export_search.dart';
+import 'package:foodappbloc/elements/elements_export.dart';
 
 class FoodSearch extends SearchDelegate<List> {
   SearchBloc searchBloc;
@@ -65,11 +62,13 @@ class FoodSearch extends SearchDelegate<List> {
                   itemBuilder: (context, index) {
                     return SearchItemCart(
                       pressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    FoodDetails(items: state.recipes[index])));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) =>
+                        //             FoodDetails(items: state.recipes[index])));
+                        Navigator.pushNamed(context, '/foodDetails',
+                            arguments: state.recipes[index]);
                       },
                       imageUrl: state.recipes[index].imageUrl,
                       itemName: state.recipes[index].title,
@@ -117,11 +116,13 @@ class FoodSearch extends SearchDelegate<List> {
                   imageUrl: state.recipes[index].imageUrl,
                   itemName: state.recipes[index].title,
                   pressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                FoodDetails(items: state.recipes[index])));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             FoodDetails(items: state.recipes[index])));
+                    Navigator.pushNamed(context, '/foodDetails',
+                        arguments: state.recipes[index]);
                   },
                 );
               }),

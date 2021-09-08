@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:foodappbloc/bloc/category/category_export.dart';
 import 'package:foodappbloc/data/export_data.dart';
-import 'package:foodappbloc/elements/elements_widgets.dart';
+import 'package:foodappbloc/elements/elements_export.dart';
 import 'package:foodappbloc/elements/popular_card.dart';
 import 'package:foodappbloc/screens/screen_export.dart';
 
@@ -65,11 +65,13 @@ Widget builtCategoryList(BuildContext context, List<Recipe> recipes) {
         itemBuilder: (context, index) {
           return CustomPopularCard(
             pressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          FoodDetails(items: recipes[index])));
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) =>
+              //             FoodDetails(items: recipes[index])));
+              Navigator.pushNamed(context, '/foodDetails',
+                  arguments: recipes[index]);
             },
             imageUrl: recipes[index].imageUrl,
             recipeName: recipes[index].title,

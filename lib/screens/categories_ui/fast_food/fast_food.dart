@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/constants/app_colors.dart';
+import 'package:foodappbloc/shared/app_colors.dart';
 
 import '../../screen_export.dart';
 

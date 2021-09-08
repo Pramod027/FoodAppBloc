@@ -4,9 +4,9 @@ import 'package:foodappbloc/bloc/food/food_bloc.dart';
 import 'package:foodappbloc/bloc/food/food_event.dart';
 import 'package:foodappbloc/bloc/food/food_state.dart';
 import 'package:foodappbloc/bloc/search/search_bloc.dart';
-import 'package:foodappbloc/constants/app_sized_box.dart';
+import 'package:foodappbloc/shared/app_sized_box.dart';
 import 'package:foodappbloc/elements/custom_title.dart';
-import 'package:foodappbloc/elements/elements_widgets.dart';
+import 'package:foodappbloc/elements/elements_export.dart';
 import 'package:foodappbloc/elements/search_delegates.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage>
       drawer: DrawerPage(),
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.blue),
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(

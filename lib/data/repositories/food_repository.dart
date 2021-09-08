@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:foodappbloc/data/model/food.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class FoodRepository {
   Future<List<Recipe>> getFoods();

@@ -4,13 +4,13 @@
 
 import 'dart:convert';
 
-Food foodFromJson(String str) => Food.fromJson(json.decode(str));
+// Food foodFromJson(String str) => Food.fromJson(json.decode(str));
 
-String foodToJson(Food data) => json.encode(data.toJson());
+// String foodToJson(Food data) => json.encode(data.toJson());
 
 class Food {
   Food({
-    this.count,
+    // this.count,
     this.recipes,
   });
 
@@ -18,7 +18,7 @@ class Food {
   List<Recipe> recipes;
 
   factory Food.fromJson(Map<String, dynamic> json) => Food(
-        count: json["count"],
+        // count: json["count"],
         recipes:
             List<Recipe>.from(json["recipes"].map((x) => Recipe.fromJson(x))),
       );
@@ -58,7 +58,7 @@ class Recipe {
         imageUrl: json["image_url"],
         socialRank: json["social_rank"].toDouble(),
         publisherUrl: json["publisher_url"],
-        recipe: json["recipe"] ,
+        recipe: json["recipe"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -69,6 +69,6 @@ class Recipe {
         "image_url": imageUrl,
         "social_rank": socialRank,
         "publisher_url": publisherUrl,
-        "recipe":recipe
+        "recipe": recipe
       };
 }

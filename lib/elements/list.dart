@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/data/model/food.dart';
-import 'package:foodappbloc/elements/popular_card.dart';
-import 'package:foodappbloc/screens/screen_export.dart';
+import 'package:foodappbloc/data/export_data.dart';
+import 'package:foodappbloc/elements/elements_export.dart';
 
 Widget buildHintsList(BuildContext context, List<Recipe> recipes) {
   return Container(
@@ -15,11 +14,13 @@ Widget buildHintsList(BuildContext context, List<Recipe> recipes) {
             children: [
               CustomPopularCard(
                 pressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              FoodDetails(items: recipes[index])));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) =>
+                  //             FoodDetails(items: recipes[index])));
+                  Navigator.pushNamed(context, '/foodDetails',
+                      arguments: recipes[index]);
                 },
                 imageUrl: recipes[index].imageUrl,
                 recipeName: recipes[index].title,

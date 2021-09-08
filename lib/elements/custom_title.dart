@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/constants/app_colors.dart';
-import 'package:foodappbloc/constants/app_styles.dart';
+import 'package:foodappbloc/shared/app_colors.dart';
+import 'package:foodappbloc/shared/app_styles.dart';
 
 class CustomTitle extends StatelessWidget {
   final String categoryTitle;

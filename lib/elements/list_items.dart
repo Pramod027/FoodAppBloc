@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/constants/app_colors.dart';
-import 'package:foodappbloc/elements/custom_categories_card.dart';
-import 'package:foodappbloc/screens/categories_ui/beef/beef.dart';
-import 'package:foodappbloc/screens/categories_ui/chocolates/chocolates.dart';
-import 'package:foodappbloc/screens/categories_ui/fast_food/fast_food.dart';
-import 'package:foodappbloc/screens/categories_ui/fruits/fruits.dart';
+import 'package:foodappbloc/elements/elements_export.dart';
+import 'package:foodappbloc/screens/categories_ui/category_export.dart';
+import 'package:foodappbloc/shared/app_colors.dart';
 
 class CategoryItems extends StatefulWidget {
   @override

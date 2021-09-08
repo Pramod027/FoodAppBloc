@@ -2,9 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:foodappbloc/constants/app_sized_box.dart';
-import 'package:foodappbloc/constants/app_styles.dart';
 import 'package:foodappbloc/data/export_data.dart';
+import 'package:foodappbloc/shared/export_constant.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class FoodDetails extends StatefulWidget {

@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:foodappbloc/constants/app_colors.dart';
-import 'package:foodappbloc/constants/export_constant.dart';
+import 'package:foodappbloc/shared/export_constant.dart';
 
 class CustomPopularCard extends StatelessWidget {
   final customCacheManager = CacheManager(Config(

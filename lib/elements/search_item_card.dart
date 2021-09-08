@@ -1,5 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:foodappbloc/constants/export_constant.dart';
+import 'package:foodappbloc/shared/export_constant.dart';
 
 class SearchItemCart extends StatelessWidget {
   final String itemName;
@@ -18,16 +19,27 @@ class SearchItemCart extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                  // height: 90,
-                  // width: 100,
-                  child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: CachedNetworkImage(
+                      // cacheManager: customCacheManager,
+                      imageUrl: imageUrl,
+                      // placeholder: (context, url) =>
+                      //     Center(child: CircularProgressIndicator()),
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) =>
+                              CircularProgressIndicator(
+                                  value: downloadProgress.progress),
+                      errorWidget: (context, url, error) => Icon(
+                            Icons.image,
+                            color: Colors.grey,
+                            size: 80,
+                          ),
+                      fit: BoxFit.cover),
                 ),
-              )),
+              ),
               kSboxH4,
               Text(
                 itemName,

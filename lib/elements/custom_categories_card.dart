@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foodappbloc/constants/app_colors.dart';
-import 'package:foodappbloc/constants/app_sized_box.dart';
+import 'package:foodappbloc/shared/app_colors.dart';
+import 'package:foodappbloc/shared/app_sized_box.dart';
 
 class CustomCategoryCard extends StatelessWidget {
   final String image;

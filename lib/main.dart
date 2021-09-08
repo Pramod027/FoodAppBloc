@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodappbloc/bloc/search/search_bloc.dart';
-import 'package:foodappbloc/presentation/router/app_router.dart';
+import 'package:foodappbloc/addition/addition_bloc.dart';
+import 'package:foodappbloc/bloc/bloc_export.dart';
+import 'package:foodappbloc/data/repositories/export_repo.dart';
+import 'package:foodappbloc/screens/categories_ui/category_export.dart';
+import 'package:foodappbloc/shared/export_constant.dart';
 
-import 'bloc/category/category_bloc.dart';
-import 'bloc/food/food_bloc.dart';
-import 'data/export_data.dart';
-import 'data/repositories/search_repository.dart';
-import 'screens/categories_ui/bottom_nav_bar/nav_page.dart';
-
-//const String API_BOX = 'api_data';
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Hive.initFlutter();
-  // await Hive.openBox(API_BOX);
   runApp(MyApp(
     appRouter: AppRouter(),
   ));
@@ -45,8 +38,12 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           // title: 'Sizer',
           theme: ThemeData.light(),
-          home: PageNavagation(),
-          onGenerateRoute: appRouter.onGenerateRoute,
+          home: BlocProvider<CalculatorBloc>(
+            create: (context) => CalculatorBloc(CalculatorInitial()),
+            child: HomePage(),
+          ),
+          // home:ShimmerEg(),
+          onGenerateRoute: AppRouter.onGenerateRoute,
         ));
   }
 }

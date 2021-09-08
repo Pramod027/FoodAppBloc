@@ -1,1 +1,9 @@
-
+export 'package:foodappbloc/screens/categories_ui/beef/beef.dart';
+export 'package:foodappbloc/screens/categories_ui/chocolates/chocolates.dart';
+export 'package:foodappbloc/screens/categories_ui/fast_food/fast_food.dart';
+export 'package:foodappbloc/screens/categories_ui/fruits/fruits.dart';
+export 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/home_page.dart';
+export 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/last_page.dart';
+export 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/nav_page.dart';
+export 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/third.dart';
+export 'package:foodappbloc/screens/categories_ui/bottom_nav_bar/second_page.dart';
